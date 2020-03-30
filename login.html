@@ -12,10 +12,21 @@
                 <img class="homebutton" src="images/home.svg" height="8%" width="5%">
             </a>
             
-            <form class="box" method="POST" action="login.html">
+            <form class="box" method="POST" action="login.php">
                 <h1>Login</h1>
-                <input type="TEXT" name="username" placeholder="username" >                
-                <input type="password" name="password" placeholder="password" >
+                <input type="TEXT" name="username" placeholder="username" required >                
+                <input type="password" name="password" placeholder="password" required >
+                <div class="customer_type">
+                    <p>Login as a Seller or Buyer?</p>
+                    <label>
+                        <input type="radio" name="customer_type" value="seller" required>
+                        <span class="Seller">Seller</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="customer_type" value="Buyer">
+                        <span class="Buyer">Buyer</span>
+                    </label>
+                </div>
                 <input type="submit" name="submit" value="Login">
             </form>
         </div>

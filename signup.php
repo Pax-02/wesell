@@ -44,9 +44,12 @@ if (isset($_POST['submit'])){
         else{
             print("Confirm password doesn't much password");
         }
-        
-        
     }
+        
+    else{
+        print("Sorry can't create account! Need to choose account type.");
+    } 
+    
 
-}
+}   
 ?>
