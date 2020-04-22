@@ -15,7 +15,10 @@ function CheckUserAndPaswdBuyer($username,$password){
     $count = mysqli_num_rows($result);
 
     if ($count==1){
-        print("successfuly loged in");
+        session_start();
+        $_SESSION['user']= $username;
+        
+        
     }
     else{
         print("wrong credentials".mysqli_error($conn));
@@ -29,18 +32,38 @@ function CheckUserAndPaswdSeller($username,$password){
     $query="SELECT * FROM register_sellers Where username='$username' And password='$hashedpassword'";
     $result = mysqli_query($conn, $query);
     // count the numbers of rows provided by the query
-    $count = mysql_num_rows($result);
+    $count = mysqli_num_rows($result);
     if ($count==1){
-        print("incorrect password".mysqli_error($conn));
-    }
-    elseif ($count==1){
-        print("successfull loged in");
+        session_start();
+        $_SESSION['user']= $username;
+        $_SESSION['sucess']="Loged in successfully";
+        header("location: seller_index.php");
     }
     else{
-        print("wrong credentials".mysqli_error($conn));
+        echo("wrong credentials".mysqli_error($conn));
+        header('location: login.html');
+
     }
+    
 }
 
+// Function to show if it has logged in
+
+function isLoggedIn()
+{
+	if (isset($_SESSION['user'])) {
+		return true;
+	}else{
+		return false;
+	}
+}
+// Log out Functiom
+
+if (isset($_GET['logout'])) {
+	session_destroy();
+	unset($_SESSION['user']);
+	header("location: login.html");
+}
 function HashWithMD5($text) {
     $hashedpassword = MD5($text);
     return $hashedpassword;

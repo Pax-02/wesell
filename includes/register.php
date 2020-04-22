@@ -20,7 +20,7 @@ function RegisterBuyers($first_name,$last_name,$phone_number,$location, $usernam
 
     $result = mysqli_query($conn, $query);
     if ($result) {
-        echo "Successfully Inserted";
+        header('location: login.html');
     } else {
         echo "Could not insert record! " . mysqli_error($conn);
     }
@@ -35,7 +35,7 @@ function RegisterSellers($first_name,$last_name,$phone_number,$location, $userna
 
     $result = mysqli_query($conn, $query);
     if ($result) {
-        echo "Successfully Inserted";
+        header('location: login.html');
     } else {
         echo "Could not insert record! " . mysqli_error($conn);
     }
