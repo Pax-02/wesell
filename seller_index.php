@@ -1,12 +1,26 @@
+
 <?php 
 session_start();
 include('includes/log_check.php');
-include('functions.php');
+include('includes/functions.php');
 if (!isLoggedIn()) {
 	$_SESSION['msg'] = "You must log in first";
 	header('location: login.html');
 }
 session_start();
+
+if (isset($_POST['upload'])){
+    // path to store the images
+    $target="images/".basename($_FILES['image']['product_name']);
+    $image = $_FILES['image']['product_name'];
+    $product_name=$_POST['product_name'];
+    $product_price=$_POST['product_price'];
+    $product_description=$_POST['product_description'];
+    $username=$_SESSION['user'];
+    InsertProduct($image,$product_name,$product_price,$product_description,$username);
+
+    
+}
 ?>
 <!DOCTYPE html>
     <head>
@@ -26,13 +40,46 @@ session_start();
                 <li><a href="#">Sold Product</li>
                 
                 <?php endif ?>
+                
             </ul>
             <Strong><a href="#">User: <?php echo $_SESSION['user']; ?></Strong>
-            <a href="seller_index.php?logout="1"><button>Log out</button>
-                
-            
+            <Strong><a href="seller_index.php?logout="1">Log out<Strong>
             
         </header>
-       
+
+        
+        <footer>
+            <div class="click-me">
+                <a href="#"><button id="button">Add Product</button>
+            </div>
+            <div class=pop-out>
+                <div class="upload-product">
+                <div class="close">+</div>
+                </div>
+                <div id="content">
+                    <form class="box" method="post" action="seller_index.php" enctype="multipart/form-data">
+                        
+                        <input type="hidden" name="size" value="1000000">
+                    
+                            
+                        <div class="inputs">
+                            <h1>Sell your Product</h1>
+                            <input type="file" name="image">
+                            <input type="TEXT" name="product_name" placeholder="Product Name" required >
+                            <input type="number" name="product_price" placeholder="price" min="100" max="1000000" required >
+                            <textarea name="product_description" cols="40" rows="4" minlength="20" maxlength="300" placeholder="Product details in few lines"required></textarea> 
+                            <input type="submit" name="upload" value="Submit">
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </footer>
+
+
+                
+            
+    
+    <script src="./seller_index.js"></script>
     </body>
 </html>

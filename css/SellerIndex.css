@@ -9,6 +9,7 @@
     font-weight: 500;
     font-size: 14px;
     
+    
 }
 
 .logo{
@@ -16,7 +17,7 @@
     background-color: #24252A;
 }
 
-li ,a, button{
+li ,a{
     color: aliceblue;
     text-decoration: none;
     background-color: #24252A;
@@ -32,8 +33,11 @@ header{
     
 }
 
+
+
 .option_links{
     list-style: none;
+    
 }
 
 .option_links li{
@@ -61,12 +65,159 @@ header{
     background-color: #24252A;
 
 }
+footer{
+    padding: 0;
+    margin: 270px 0px;
+    width: 100%;
+    display:flex;
+    
+    
+    
+
+
+}
+.click-me{
+    margin: 0;
+    padding: auto;
+    position:absolute;
+    top: 40%;
+    right: 50%;
+    background-color:#24252A ;
+}
 button{
-    padding: 10px 15px;
+    border: 0;
+    background: none;
+    display:inline-block;
+    
+    text-align: center;
     border: 2px solid #349834;
-    border-radius: 10%;
+    padding: 20px 15px;
+    width: 200px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
     cursor: pointer;
+    
+    
+
+}
+
+button:hover{
+    opacity: 1;
+    background-color: #349834;
+    border-radius: 24px;
+    width: auto;
+
+}
+
+.pop-out{
+    display:none;
+    background-color: #333;
+    opacity: 0.9;
+    width: 100%;
+    height: 100%;
+    position:absolute;
+    top:0;
+    
+    
+}
+
+.upload-product{
+    height: 400px;
+	width: 600px;
+	text-align: center;
+	padding: 20px;
+    position: absolute;
+    top:30%;
+    right:40%;
+    border-radius: 4px;
+    background-color:#333;
+    margin: 10px;
+    
+}
+
+.close {
+	position: absolute;
+    top: 0;
+    background-color:#333;
+	right: 10px;
+	font-size: 42px;
+	color: chartreuse;
+	transform: rotate(45deg);
+	cursor: pointer;}
+.close:hover {
+		color:red;
+    }
+
+
+.box{
+    width:500px;
+    position: absolute;
+    top:30%;
+    right: 43%;
+    padding: 10px;  
+    text-align: center;
+    border-radius: 5%;
+    background-color: #4a794a;
+
+}
+.inputs {
+    padding: 20px;
+    background-color:black;
+    
+    border-radius: 5%;
+    height: 450px;
+    border: 1px chartreuse ;
+}
+    
+
+.box h1{
+    position: relative;
+    color: white;
+    padding: 20px;
+    text-transform: uppercase;
+    font-weight: 800;
+    background-color: #333;
+    border-radius: 25px;
+}
+
+.box input[type= "TEXT"],.box input[type= "number"],.box input[type= "submit"]{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #349834;
+    padding: 10px 8px;
+    width: 200px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    box-shadow: 0px 4px 2px #4a794a;
+    
+}
+.box input[type= "file"]{
+    background-color:black ;
+    padding: 10px;
+}
+
+.box input[type="submit"]:hover{
+    opacity: 1;
+    background-color: #349834;
+}
+
+
+textarea{
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #349834;
+    padding: 10px 8px;
+    width: 400px;
+    outline: none;
+    color: white;
+    border-radius: 10px;
     box-shadow: 0px 4px 2px #4a794a;
 
-    
 }
