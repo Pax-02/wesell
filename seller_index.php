@@ -7,17 +7,28 @@ if (!isLoggedIn()) {
 	$_SESSION['msg'] = "You must log in first";
 	header('location: login.html');
 }
-session_start();
+
+
 
 if (isset($_POST['upload'])){
+    // get image name
+    $image = $_FILES['image']['name'];
     // path to store the images
-    $target="images/".basename($_FILES['image']['product_name']);
-    $image = $_FILES['image']['product_name'];
+    $target=dirname(__FILE__)."uploads/".$image;
+    
     $product_name=$_POST['product_name'];
     $product_price=$_POST['product_price'];
     $product_description=$_POST['product_description'];
     $username=$_SESSION['user'];
     InsertProduct($image,$product_name,$product_price,$product_description,$username);
+    // put the file in images
+    if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
+        $msg = "Image uploaded successfully";
+        
+    }else{
+        $msg = "Failed to upload image";
+        
+    }
 
     
 }
