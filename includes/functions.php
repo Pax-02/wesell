@@ -15,4 +15,10 @@ function InsertProduct($image,$product_name,$product_price,$product_description,
     
 }
 
+function RetreiveProducts($username){
+    $conn = DBConnect($GLOBALS['dbhost'], $GLOBALS['dbuser'], $GLOBALS['dbpass'], $GLOBALS['dbname']);
+    $query= "SELECT * FROM products WHERE username='$username'";
+    $result=mysqli_query($conn,$query);
+}
+
 ?>

@@ -221,3 +221,68 @@ textarea{
     box-shadow: 0px 4px 2px #4a794a;
 
 }
+
+#product-view{
+    width: auto;
+    margin: 0;
+    position: absolute;
+    top:18%;
+    left: 30px;
+    
+    
+}
+
+
+#img_div{
+    height: 50px;
+	width: 350px;
+    margin: 1px 15px;
+    padding: 10px;
+    display: inline-block;
+    position: relative;    
+    background-color: #4a794a;
+    border-radius: 20px;
+    justify-content: center;
+}
+
+.product-box{
+    background-color: #333;
+    width: auto;
+    
+    margin: 0;
+}
+
+.product-box h2{
+    width: auto;
+    padding: 7px;
+    background-color: #4a794a;
+    color: white;
+    text-transform: uppercase;
+    position: relative;
+    font-family:"Montserrat" , sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.product-box img{
+    height: 180px;
+    display: absolute;
+    margin:  10px;
+}
+
+
+.product-box p{
+    background: none;
+    display: block;
+    margin: 20px;
+    text-align: center;
+    border: 2px solid #349834;
+    padding: 10px 8px;
+    width: 300px;
+    height: auto;
+    outline: none;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 2px #4a794a;
+
+}

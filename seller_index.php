@@ -1,5 +1,6 @@
 
 <?php 
+
 session_start();
 include('includes/log_check.php');
 include('includes/functions.php');
@@ -14,7 +15,7 @@ if (isset($_POST['upload'])){
     // get image name
     $image = $_FILES['image']['name'];
     // path to store the images
-    $target=dirname(__FILE__)."uploads/".$image;
+    $target=dirname(__FILE__)."/uploads/".$image;
     
     $product_name=$_POST['product_name'];
     $product_price=$_POST['product_price'];
@@ -47,7 +48,7 @@ if (isset($_POST['upload'])){
             <img class="logo" src="images/logo.png" style="width:50px;height:50px;">
             <ul class="option_links">
             <?php if (isset($_SESSION["user"])): ?>
-                <li><a href="#">My product</li>
+                <li><a href="myproduct.php">My product</li>
                 <li><a href="#">Sold Product</li>
                 
                 <?php endif ?>
