@@ -6,6 +6,8 @@ if (!isLoggedIn()) {
 	header('location: login.html');
 }
 
+
+
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +18,8 @@ if (!isLoggedIn()) {
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/SellerIndex.css">
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
     </head>
     <body>
         <header>
@@ -43,17 +47,28 @@ if (!isLoggedIn()) {
                     $query= "SELECT * FROM products WHERE username='$username'";
                     $result=mysqli_query($conn,$query);
                     while ($row = mysqli_fetch_array($result)) {
-                        echo "<div id='img_div'>";
-                            echo "<div class=product-box>";
-                                echo "<h2>".$row['product_name']."</h2>";
-                                echo "<img src='uploads/".$row['image']."' >";
-                                echo "<p>".$row['product_description']."</p>";
-                            echo "</div>";
-                        echo "</div>";
+                        print "<div id='img_div'>";
+                            print "<div class=product-box>";
+                                print "<h2>".$row['product_name']."</h2>";
+                    
+                                print "<a href='#'><img src='uploads/".$row['image']."' >";
+                                print "<h3>"."Product description"."</h3>";
+                                print "<p>".$row['product_description']."</p>";
+                                print "<h3>"."Product price"."</h3>";
+                                print "<span>".$row['product_price']."Rwf"."</span>";
+                                print"<a href='#'><button id='remove_item' class='remove_item' >".'Remove item'.'</button>';
+
+                            print "</div>";
+
+                        print "</div>";
+
+                        
+
                       }                
                 ?>
+                    
             </div>
-
+            
         </footer>
 
         <script src="./seller_index.js"></script>

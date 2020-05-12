@@ -17,11 +17,13 @@ function CheckUserAndPaswdBuyer($username,$password){
     if ($count==1){
         session_start();
         $_SESSION['user']= $username;
-        
-        
+        $_SESSION['sucess']="Loged in successfully";
+        header("location: buyer_index.php");
     }
     else{
-        print("wrong credentials".mysqli_error($conn));
+        echo("wrong credentials".mysqli_error($conn));
+        header('location: login.html');
+
     }
 
 }
