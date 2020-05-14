@@ -27,7 +27,7 @@ if (!isLoggedIn()) {
             <ul class="option_links">
             <?php if (isset($_SESSION["user"])): ?>
                 <li><a href="myproduct.php">My product</li>
-                <li><a href="#">Sold Product</li>
+                <li><a href="sold_product.phpgot">Sold Product</li>
                 <li><a href="seller_index.php">Add Product</li>
                 
                 <?php endif ?>
@@ -44,7 +44,7 @@ if (!isLoggedIn()) {
                     include('includes/functions.php');
                     $username=$_SESSION['user'];
                     $conn = DBConnect($GLOBALS['dbhost'], $GLOBALS['dbuser'], $GLOBALS['dbpass'], $GLOBALS['dbname']);
-                    $query= "SELECT * FROM products WHERE username='$username'";
+                    $query= "SELECT * FROM products WHERE username='$username' AND bought='0'";
                     $result=mysqli_query($conn,$query);
                     while ($row = mysqli_fetch_array($result)) {
                         print "<div id='img_div'>";
