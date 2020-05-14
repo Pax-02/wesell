@@ -4,7 +4,7 @@
     box-sizing:border-box;
     margin: 0;
     padding: 0;
-    background-color: beige;
+    background-color:  rgb(222, 224, 235);
     font-family:"Montserrat" , sans-serif;
     font-weight: 500;
     font-size: 14px;
@@ -251,7 +251,7 @@ textarea{
 .product-box{
     background-color: #333;
     width: auto;
-    height: 500px;
+    height: 530px;
     
     margin: 0;
 }
@@ -308,21 +308,6 @@ textarea{
     
 
 
-}
-
-
-.remove_item{
-    background: none;
-    margin: 10px 70px;
-    text-align: center;
-    border: 2px solid #349834;
-    padding: 10px 8px;
-    width: 150px;
-    height: auto;
-    outline: none;
-    color: white;
-    border-radius: 10px;
-    box-shadow: 0px 4px 2px #4a794a;
 }
 
 

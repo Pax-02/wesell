@@ -11,32 +11,6 @@ if (!isLoggedIn()) {
 	header('location: login.html');
 }
 
-// if (isset($_GET['buy_product'])){
-//     $item=$row['product_id'];
-//     $image=$row['image'];
-//     $product_name=$row['product_name'];
-//     $product_description=$row['product_description'];
-//     $product_price=$row['product_price'];
-//     $seller=$row['username'];
-//     $buyer=$_SESSION['user'];
-//     $conn = DBConnect($GLOBALS['dbhost'], $GLOBALS['dbuser'], $GLOBALS['dbpass'], $GLOBALS['dbname']);
-//     $query1="INSERT INTO product_purchased (image,product_name,product_description,product_price,seller,buyer)"
-//             ."VALUES('$image','$product_name','$product_description','$product_price','$seller','$buyer')";
-//             // ."WHERE product_id='$item'";
-    
-//     $result1=mysqli_query($conn,$query1);
-    
-//     if ($result1){
-//         $query2= "DELETE  FROM products WHERE product_id='$item'";
-//         $result2=mysqli_query($conn,$query2);
-//     }
-    
-//     }
-
-
-
-
-
 ?>
 
 
@@ -47,7 +21,6 @@ if (!isLoggedIn()) {
         <title>Buyer user</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
         <link rel="stylesheet" href="css/BuyerIndex.css">
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> 
     </head>
@@ -58,25 +31,23 @@ if (!isLoggedIn()) {
             <?php if (isset($_SESSION["user"])): ?>
                 <li><a href="buyer_index.php">View product</li>
                 <li><a href="bought_product.php">Bought product</li>
-                <li><a href="buyer_search.php">Search Product</li>
-
                 
                 <?php endif ?>
                 
             </ul>
             <Strong><a href="#">User: <?php echo $_SESSION['user']; ?></Strong>
-            <Strong><a href="buyer_index.php?logout="1">Log out<Strong>
+            <Strong><a href="seller_index.php?logout="1">Log out<Strong>
             
         </header>
 
         
         <footer>
 			<a href="#">
-            
-            <div id="product-view">
-                <?php 
+            <div id=product-view>
+                <?php
+                    $username=$_SESSION['user']; 
                     $conn = DBConnect($GLOBALS['dbhost'], $GLOBALS['dbuser'], $GLOBALS['dbpass'], $GLOBALS['dbname']);
-                    $query= "SELECT * FROM products WHERE bought='0'";
+                    $query= "SELECT * FROM products WHERE buyer='$username' AND bought='1'"  ;
                     $result=mysqli_query($conn,$query);
                     while ($row = mysqli_fetch_array($result)) {
                         print "<div id='img_div'>";
@@ -88,38 +59,18 @@ if (!isLoggedIn()) {
                                 print "<p>".$row['product_description']."</p>";
                                 print "<h3>"."Product price"."</h3>";
                                 print "<span>".$row['product_price']."Rwf"."</span>";
-                                print "<a href='buyer_index.php?buy_product='1'><span>Buy product</span>";
-                                if (isset($_GET['buy_product'])){
-                                    $item=$row['product_id'];
-                                    $buyer=$_SESSION['user'];
-                                    
-                                    $conn = DBConnect($GLOBALS['dbhost'], $GLOBALS['dbuser'], $GLOBALS['dbpass'], $GLOBALS['dbname']);
-                                    $query="UPDATE products SET bought='1',buyer='$buyer' WHERE product_id='$item'";
-                                            
-                                            
-                                            
-                                    
-                                    $result=mysqli_query($conn,$query);
-                                    
-                                    
-                                }
-                                
-                                
+                                print "<span>"."Seller: ".$row['username']."</span>";
 
-                                
-                                
                                 
                             print "</div>";
 
                         print "</div>";
 
-                    }
-                    
+                        
 
-                                      
+                      }                
                 ?>
                     
-            </div>
 
 
 
