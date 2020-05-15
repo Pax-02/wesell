@@ -27,7 +27,7 @@ if (!isLoggedIn()) {
             <ul class="option_links">
             <?php if (isset($_SESSION["user"])): ?>
                 <li><a href="myproduct.php">My product</li>
-                <li><a href="sold_product.phpgot">Sold Product</li>
+                <li><a href="sold_product.php">Sold Product</li>
                 <li><a href="seller_index.php">Add Product</li>
                 
                 <?php endif ?>

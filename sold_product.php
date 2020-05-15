@@ -25,12 +25,13 @@ if (!isLoggedIn()) {
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> 
     </head>
     <body>
-        <header>
+    <header>
             <img class="logo" src="images/logo.png" style="width:50px;height:50px;">
             <ul class="option_links">
             <?php if (isset($_SESSION["user"])): ?>
-                <li><a href="buyer_index.php">View product</li>
-                <li><a href="bought_product.php">Bought product</li>
+                <li><a href="myproduct.php">My product</li>
+                <li><a href="sold_product.php">Sold Product</li>
+                <li><a href="seller_index.php">Add Product</li>
                 
                 <?php endif ?>
                 
@@ -39,7 +40,7 @@ if (!isLoggedIn()) {
             <Strong><a href="seller_index.php?logout="1">Log out<Strong>
             
         </header>
-
+        
         
         <footer>
 			<a href="#">
